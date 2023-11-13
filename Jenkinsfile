@@ -21,13 +21,11 @@ pipeline {
                 sh "node --version"
                 sh "npm --version"
                 sh '''
-                    cd Aula-GitHub-Actions
                     npm install
                     npm run build
-                    cd ${WORKSPACE}
                     ls
                 '''
-                archiveArtifacts 'Aula-GitHub-Actions/target/'
+                archiveArtifacts 'src/target/'
             }
         }
         stage ('Test') {
