@@ -13,3 +13,7 @@
 - Linguagem de Programação: Typescript
 - IDE: VSCode
 
+## Para rodar digite
+- npm i para baixar as bibliotecas
+- npm run test para rodar os testes
+- npm run start para rodar
