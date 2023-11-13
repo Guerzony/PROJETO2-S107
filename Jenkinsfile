@@ -30,14 +30,16 @@ pipeline {
                 archiveArtifacts 'Aula-GitHub-Actions/target/'
             }
         }
-
-        stage('Test') {
+        stage ('Test') {
             steps {
-                echo 'Testing...'
+                echo 'Testing'
                 sh '''
-                    cd Aula-GitHub-Actions
+                    node --version
+                    npm --version
+                    npm i --legacy-peer-deps     
                     npm run test
                 '''
+                archiveArtifacts 'report.html'
             }
         }
         stage ('Notifications') {
@@ -47,7 +49,7 @@ pipeline {
                     subject: 'Pipeline Executado!',
                     body: 'Build completed. Please check the status.',
                     to: env.EMAIL,
-                    from: 'seu-email@example.com',
+                    from: 'testes107email@gmail.com',
                     mimeType: 'text/html'
                 )
             }
